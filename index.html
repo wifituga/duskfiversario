@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Nuestra historia</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Georgia, serif;
+      background:
+        radial-gradient(circle at 20% 15%, rgba(255, 238, 196, 0.45), transparent 28%),
+        radial-gradient(circle at 80% 8%, rgba(255, 255, 255, 0.18), transparent 25%),
+        linear-gradient(to bottom, #f3c18d 0%, #d99070 35%, #80698d 68%, #30355f 100%);
+      color: #fffaf2;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .sun {
+      position: fixed;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #fff3bf, #f2a35e 70%);
+      top: 80px;
+      right: 10%;
+      opacity: 0.65;
+      filter: blur(1px);
+      z-index: -3;
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(255, 241, 214, 0.08), rgba(23, 23, 46, 0.24));
+      z-index: -2;
+    }
+
+    .flowers-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .flower {
+      position: absolute;
+      opacity: 0.45;
+      filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.18));
+      animation: floatFlower 8s ease-in-out infinite;
+    }
+
+    .flower.one {
+      top: 12%;
+      left: 5%;
+      font-size: 3rem;
+    }
+
+    .flower.two {
+      top: 55%;
+      right: 7%;
+      font-size: 3.5rem;
+      animation-delay: 1.5s;
+    }
+
+    .flower.three {
+      bottom: 8%;
+      left: 10%;
+      font-size: 2.8rem;
+      animation-delay: 2.5s;
+    }
+
+    .flower.four {
+      top: 28%;
+      right: 22%;
+      font-size: 2.1rem;
+      opacity: 0.3;
+      animation-delay: 3s;
+    }
+
+    @keyframes floatFlower {
+      0%, 100% {
+        transform: translateY(0) rotate(-4deg);
+      }
+
+      50% {
+        transform: translateY(-14px) rotate(4deg);
+      }
+    }
+
+    .petals {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .petals span {
+      position: absolute;
+      top: -10%;
+      width: 12px;
+      height: 18px;
+      background: rgba(255, 255, 255, 0.48);
+      border-radius: 80% 20% 80% 20%;
+      animation: fallPetal 14s linear infinite;
+    }
+
+    .petals span:nth-child(1) {
+      left: 12%;
+      animation-delay: 0s;
+    }
+
+    .petals span:nth-child(2) {
+      left: 28%;
+      animation-delay: 4s;
+      animation-duration: 16s;
+    }
+
+    .petals span:nth-child(3) {
+      left: 48%;
+      animation-delay: 2s;
+      animation-duration: 15s;
+    }
+
+    .petals span:nth-child(4) {
+      left: 70%;
+      animation-delay: 5s;
+      animation-duration: 17s;
+    }
+
+    .petals span:nth-child(5) {
+      left: 88%;
+      animation-delay: 1s;
+      animation-duration: 18s;
+    }
+
+    @keyframes fallPetal {
+      0% {
+        transform: translateY(-10vh) rotate(0deg);
+        opacity: 0;
+      }
+
+      15% {
+        opacity: 0.55;
+      }
+
+      100% {
+        transform: translateY(115vh) rotate(260deg);
+        opacity: 0;
+      }
+    }
+
+    header {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+      z-index: 2;
+      overflow: hidden;
+    }
+
+    .random-meme {
+      position: absolute;
+      width: clamp(90px, 13vw, 165px);
+      z-index: 3;
+      animation: randomFloat 4s ease-in-out infinite;
+    }
+
+    .random-meme img {
+      width: 100%;
+      display: block;
+      border-radius: 22px;
+      opacity: 0.9;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+      border: 2px solid rgba(255, 255, 255, 0.45);
+    }
+
+    .random-meme span {
+      position: absolute;
+      right: -10px;
+      bottom: -10px;
+      padding: 0.35rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      font-family: Arial, sans-serif;
+      font-size: 0.72rem;
+      color: #fffaf2;
+      white-space: nowrap;
+    }
+
+    .meme-one {
+      top: 12%;
+      left: 8%;
+      transform: rotate(-8deg);
+    }
+
+    .meme-two {
+      right: 8%;
+      bottom: 18%;
+      transform: rotate(7deg);
+      animation-delay: 1.2s;
+    }
+
+    @keyframes randomFloat {
+      0%, 100% {
+        translate: 0 0;
+      }
+
+      50% {
+        translate: 0 -10px;
+      }
+    }
+
+    .hero {
+      max-width: 820px;
+      animation: fadeUp 1.3s ease forwards;
+      position: relative;
+      z-index: 4;
+    }
+
+    .hero::before {
+      content: "♡";
+      display: block;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      opacity: 0.75;
+    }
+
+    .hero small {
+      font-family: Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 0.78rem;
+      opacity: 0.78;
+    }
+
+    .hero h1 {
+      font-size: clamp(3.4rem, 8vw, 7rem);
+      font-weight: 400;
+      line-height: 0.95;
+      margin: 1rem 0 1.4rem;
+      text-shadow: 0 18px 45px rgba(30, 24, 40, 0.24);
+    }
+
+    .hero p {
+      max-width: 640px;
+      margin: auto;
+      font-family: Arial, sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.9;
+      opacity: 0.92;
+    }
+
+    .month-nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      padding: 1rem 8%;
+      display: flex;
+      gap: 0.7rem;
+      overflow-x: auto;
+      background: rgba(48, 42, 70, 0.32);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .month-nav a {
+      white-space: nowrap;
+      text-decoration: none;
+      color: #fffaf2;
+      font-family: Arial, sans-serif;
+      font-size: 0.82rem;
+      padding: 0.65rem 1rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      transition: 0.3s ease;
+    }
+
+    .month-nav a:hover {
+      background: rgba(255, 255, 255, 0.22);
+      transform: translateY(-2px);
+    }
+
+    .story-wrapper {
+      position: relative;
+      z-index: 2;
+    }
+
+    .month-section {
+      padding: 6rem 8%;
+      min-height: 100vh;
+      border-top: 1px solid rgba(255, 255, 255, 0.09);
+    }
+
+    .month-head {
+      max-width: 780px;
+      margin: 0 auto 3.5rem;
+      text-align: center;
+    }
+
+    .month-kicker {
+      font-family: Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 0.74rem;
+      opacity: 0.72;
+      margin-bottom: 1rem;
+    }
+
+    .month-head h2 {
+      font-size: clamp(2.5rem, 6vw, 5.2rem);
+      font-weight: 400;
+      line-height: 1;
+      margin-bottom: 1.3rem;
+      text-shadow: 0 14px 36px rgba(35, 25, 45, 0.24);
+    }
+
+    .month-head p {
+      font-family: Arial, sans-serif;
+      line-height: 1.9;
+      opacity: 0.9;
+      max-width: 650px;
+      margin: auto;
+    }
+
+    .month-head p + p {
+      margin-top: 0.7rem;
+    }
+
+    .month-grid {
+      max-width: 1120px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1rem;
+    }
+
+    .memory-card {
+      position: relative;
+      height: 280px;
+      border-radius: 26px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.12);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .memory-card.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .memory-card:nth-child(1) {
+      grid-column: span 2;
+    }
+
+    .memory-card:nth-child(4) {
+      grid-column: span 2;
+    }
+
+    .single-memory-grid {
+      max-width: 520px;
+      grid-template-columns: 1fr;
+    }
+
+    .single-memory-grid .memory-card {
+      grid-column: span 1;
+      height: 520px;
+    }
+
+    .memory-card img,
+    .memory-card video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.9) saturate(0.92) sepia(0.05);
+      transition: transform 0.7s ease;
+    }
+
+    .memory-card:hover img,
+    .memory-card:hover video {
+      transform: scale(1.05);
+    }
+
+    .memory-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to top, rgba(25, 22, 35, 0.58), transparent 52%);
+      pointer-events: none;
+    }
+
+    .video-card::after {
+      display: none;
+    }
+
+    .photo-number {
+      position: absolute;
+      left: 1rem;
+      bottom: 1rem;
+      z-index: 2;
+      font-family: Arial, sans-serif;
+      font-size: 0.78rem;
+      opacity: 0.82;
+      padding: 0.45rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(8px);
+    }
+
+    .month-note {
+      max-width: 720px;
+      margin: 3rem auto 0;
+      padding: 1.6rem;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.11);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      backdrop-filter: blur(8px);
+      font-family: Arial, sans-serif;
+      line-height: 1.9;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(24px);
+      transition: 0.8s ease;
+    }
+
+    .month-note.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .utah-mountains {
+      position: relative;
+      height: 170px;
+      overflow: hidden;
+      z-index: 2;
+      margin-top: -1px;
+    }
+
+    .mountain {
+      position: absolute;
+      bottom: -85px;
+      width: 360px;
+      height: 360px;
+      background: rgba(80, 62, 82, 0.42);
+      transform: rotate(45deg);
+      border-radius: 18px;
+    }
+
+    .mountain-one {
+      left: -90px;
+    }
+
+    .mountain-two {
+      left: 28%;
+      background: rgba(99, 73, 82, 0.48);
+    }
+
+    .mountain-three {
+      right: -90px;
+      background: rgba(55, 53, 82, 0.52);
+    }
+
+    .bloom-section {
+      min-height: 80vh;
+      padding: 6rem 8%;
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .section-title {
+      font-size: clamp(2.4rem, 5vw, 4.8rem);
+      font-weight: 400;
+      line-height: 1.1;
+      margin-bottom: 1.4rem;
+      text-align: center;
+    }
+
+    .section-title::after {
+      content: "✦";
+      display: block;
+      font-size: 1rem;
+      margin-top: 1rem;
+      opacity: 0.65;
+    }
+
+    .intro {
+      max-width: 720px;
+      margin: 0 auto;
+      font-family: Arial, sans-serif;
+      line-height: 1.9;
+      opacity: 0.9;
+      text-align: center;
+    }
+
+    .garden {
+      max-width: 760px;
+      height: 330px;
+      margin: 4rem auto 0;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: clamp(2rem, 7vw, 5rem);
+    }
+
+    .bloom {
+      position: relative;
+      width: 120px;
+      height: 270px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    .stem {
+      width: 4px;
+      height: 0;
+      border-radius: 999px;
+      background: linear-gradient(to top, rgba(204, 232, 190, 0.85), rgba(255, 255, 255, 0.75));
+      animation: growStem 2.8s ease forwards;
+      transform-origin: bottom;
+      position: relative;
+    }
+
+    .bloom-two .stem {
+      animation-delay: 0.5s;
+    }
+
+    .bloom-three .stem {
+      animation-delay: 1s;
+    }
+
+    .stem::before,
+    .stem::after {
+      content: "";
+      position: absolute;
+      width: 34px;
+      height: 18px;
+      background: rgba(210, 232, 196, 0.65);
+      border-radius: 100% 0 100% 0;
+      opacity: 0;
+      animation: leafAppear 1.2s ease forwards;
+    }
+
+    .stem::before {
+      top: 45%;
+      left: 4px;
+      transform: rotate(-18deg);
+      animation-delay: 1.6s;
+    }
+
+    .stem::after {
+      top: 62%;
+      right: 4px;
+      transform: rotate(160deg);
+      animation-delay: 1.9s;
+    }
+
+    .flower-head {
+      position: absolute;
+      bottom: 168px;
+      left: 50%;
+      width: 78px;
+      height: 78px;
+      transform: translateX(-50%) scale(0);
+      opacity: 0;
+      animation: bloomOpen 1.6s ease forwards;
+      animation-delay: 2.3s;
+    }
+
+    .bloom-two .flower-head {
+      bottom: 202px;
+      animation-delay: 2.8s;
+    }
+
+    .bloom-three .flower-head {
+      bottom: 148px;
+      animation-delay: 3.2s;
+    }
+
+    .flower-head span {
+      position: absolute;
+      width: 34px;
+      height: 46px;
+      left: 22px;
+      top: 16px;
+      background: rgba(255, 255, 255, 0.78);
+      border-radius: 80% 80% 60% 60%;
+      transform-origin: center bottom;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+    }
+
+    .flower-head span:nth-child(1) {
+      transform: rotate(0deg) translateY(-18px);
+    }
+
+    .flower-head span:nth-child(2) {
+      transform: rotate(72deg) translateY(-18px);
+    }
+
+    .flower-head span:nth-child(3) {
+      transform: rotate(144deg) translateY(-18px);
+    }
+
+    .flower-head span:nth-child(4) {
+      transform: rotate(216deg) translateY(-18px);
+    }
+
+    .flower-head span:nth-child(5) {
+      transform: rotate(288deg) translateY(-18px);
+    }
+
+    .flower-head::after {
+      content: "";
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      left: 31px;
+      top: 31px;
+      border-radius: 50%;
+      background: rgba(255, 231, 168, 0.95);
+      box-shadow: 0 0 18px rgba(255, 231, 168, 0.5);
+    }
+
+    .hydrangea {
+      width: 100px;
+      height: 100px;
+    }
+
+    .hydrangea span {
+      width: 30px;
+      height: 30px;
+      border-radius: 50% 50% 45% 45%;
+      background: rgba(235, 244, 255, 0.78);
+    }
+
+    .hydrangea span:nth-child(1) { left: 34px; top: 6px; transform: none; }
+    .hydrangea span:nth-child(2) { left: 16px; top: 20px; transform: none; }
+    .hydrangea span:nth-child(3) { left: 52px; top: 20px; transform: none; }
+    .hydrangea span:nth-child(4) { left: 8px; top: 44px; transform: none; }
+    .hydrangea span:nth-child(5) { left: 34px; top: 42px; transform: none; }
+    .hydrangea span:nth-child(6) { left: 60px; top: 44px; transform: none; }
+    .hydrangea span:nth-child(7) { left: 20px; top: 66px; transform: none; }
+    .hydrangea span:nth-child(8) { left: 48px; top: 68px; transform: none; }
+    .hydrangea span:nth-child(9) { left: 36px; top: 24px; transform: none; }
+
+    .hydrangea::after {
+      display: none;
+    }
+
+    @keyframes growStem {
+      from {
+        height: 0;
+      }
+
+      to {
+        height: 190px;
+      }
+    }
+
+    @keyframes leafAppear {
+      from {
+        opacity: 0;
+        scale: 0;
+      }
+
+      to {
+        opacity: 1;
+        scale: 1;
+      }
+    }
+
+    @keyframes bloomOpen {
+      0% {
+        opacity: 0;
+        transform: translateX(-50%) scale(0) rotate(-12deg);
+      }
+
+      70% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1.08) rotate(3deg);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1) rotate(0deg);
+      }
+    }
+
+    .ending {
+      min-height: 85vh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 6rem 8%;
+      position: relative;
+      z-index: 2;
+    }
+
+    .ending-box {
+      max-width: 780px;
+      padding: 3rem;
+      border-radius: 36px;
+      background: rgba(255, 255, 255, 0.09);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+    }
+
+    .ending-box h2 {
+      font-size: clamp(2.4rem, 5vw, 4.8rem);
+      font-weight: 400;
+      line-height: 1.1;
+      margin-bottom: 1.4rem;
+    }
+
+    .ending-box p {
+      font-family: Arial, sans-serif;
+      line-height: 1.9;
+      opacity: 0.9;
+    }
+
+    .letter-section {
+      padding: 5rem 8%;
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .letter-button {
+      margin-top: 1rem;
+      padding: 0.9rem 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.14);
+      color: #fffaf2;
+      font-family: Arial, sans-serif;
+      font-size: 0.95rem;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .letter-button:hover {
+      transform: translateY(-3px);
+      background: rgba(255, 255, 255, 0.22);
+    }
+
+    .letter-card {
+      max-width: 760px;
+      margin: 2rem auto 0;
+      padding: 2rem;
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(8px);
+      font-family: Arial, sans-serif;
+      line-height: 1.9;
+      text-align: left;
+      opacity: 0;
+      transform: translateY(14px);
+      max-height: 0;
+      overflow: hidden;
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .letter-card.show {
+      opacity: 1;
+      transform: translateY(0);
+      max-height: none;
+      overflow: visible;
+    }
+
+    .letter-card p + p {
+      margin-top: 1rem;
+    }
+
+    footer {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 3rem 1rem;
+      font-family: Arial, sans-serif;
+      opacity: 0.8;
+    }
+
+    .floating-note {
+      position: fixed;
+      left: 50%;
+      bottom: 22px;
+      transform: translateX(-50%);
+      padding: 0.8rem 1.2rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.16);
+      backdrop-filter: blur(10px);
+      font-family: Arial, sans-serif;
+      font-size: 0.85rem;
+      opacity: 0.88;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      z-index: 30;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .month-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .memory-card,
+      .memory-card:nth-child(1),
+      .memory-card:nth-child(4) {
+        grid-column: span 1;
+      }
+
+      .single-memory-grid {
+        max-width: 520px;
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .random-meme {
+        width: 92px;
+      }
+
+      .meme-one {
+        top: 8%;
+        left: 6%;
+      }
+
+      .meme-two {
+        right: 6%;
+        bottom: 14%;
+      }
+
+      .random-meme span {
+        font-size: 0.65rem;
+      }
+
+      .hero h1 {
+        font-size: 3.4rem;
+      }
+
+      .month-section {
+        padding: 5rem 6%;
+      }
+
+      .month-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .memory-card {
+        height: 310px;
+      }
+
+      .single-memory-grid .memory-card {
+        height: 420px;
+      }
+
+      .ending-box {
+        padding: 2rem;
+      }
+
+      .utah-mountains {
+        height: 120px;
+      }
+
+      .mountain {
+        width: 250px;
+        height: 250px;
+      }
+
+      .garden {
+        height: 300px;
+        gap: 0.8rem;
+      }
+
+      .bloom {
+        width: 95px;
+      }
+
+      .flower-head {
+        scale: 0.85;
+      }
+
+      .hydrangea {
+        scale: 0.85;
+      }
+
+      .letter-card {
+        padding: 1.5rem;
+      }
+
+      .floating-note {
+        width: 85%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="sun"></div>
+  <div class="overlay"></div>
+
+  <div class="flowers-bg">
+    <div class="flower one">🤍</div>
+    <div class="flower two">❀</div>
+    <div class="flower three">✿</div>
+    <div class="flower four">❁</div>
+  </div>
+
+  <div class="petals">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <header>
+    <div class="random-meme meme-one">
+      <img 
+        src="https://i.pinimg.com/1200x/77/fa/51/77fa5121841efce31cf0ffe2bfc11c45.jpg"
+        alt="detalle random uno"
+      >
+      <span>spupi</span>
+    </div>
+
+    <div class="random-meme meme-two">
+      <img 
+        src="https://i.pinimg.com/736x/a9/67/a1/a967a1204c0537bb902b03eb33e41af9.jpg"
+        alt="detalle random dos"
+      >
+      <span>no me dejes que te amo uu</span>
+    </div>
+
+    <div class="hero">
+      <small>una historia en meses</small>
+      <h1>Nosotros, mes a mes</h1>
+      <p>
+        Un poquito de todo lo que vivimos para llegar al día de hoy :3
+      </p>
+    </div>
+  </header>
+
+  <nav class="month-nav" id="monthNav"></nav>
+
+  <main class="story-wrapper" id="story"></main>
+
+  <section class="bloom-section">
+    <h2 class="section-title">Lo que hemos visto florecer</h2>
+
+    <p class="intro">
+      Algunas cosas bonitas no aparecen de golpe. Crecen despacio,
+      con paciencia, con cariño y con todos los pequeños momentos
+      que fuimos guardando juntos.
+    </p>
+
+    <div class="garden">
+      <div class="bloom bloom-one">
+        <div class="stem"></div>
+        <div class="flower-head">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+
+      <div class="bloom bloom-two">
+        <div class="stem"></div>
+        <div class="flower-head hydrangea">
+          <span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+
+      <div class="bloom bloom-three">
+        <div class="stem"></div>
+        <div class="flower-head">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ending">
+    <div class="ending-box">
+      <h2>Qué bonito haber coincidido contigo.</h2>
+      <p>
+        Esta historia llega hasta aquí por ahora.
+        Se siente como una forma de mirar atrás y decir:
+        me gusta lo que somos y lo que seguimos construyendo.
+      </p>
+    </div>
+  </section>
+
+  <section class="letter-section">
+    <h2 class="section-title">Una carta para ti</h2>
+
+    <button class="letter-button" onclick="openLetter()">
+      abrir carta
+    </button>
+
+    <div class="letter-card" id="letterCard">
+      <p>
+        Sabes, Regi, nunca pensé que llegaríamos a este punto. Se sentía como algo muy lejano, casi utópico. Al principio creí que solo seríamos amigos, y aun así, yo estaba tan enamorado de ti que eso me habría parecido más que suficiente. Con solo saber cómo estabas, saber que estabas bien, yo ya era feliz.
+      </p>
+
+      <p>
+        Pero míranos hoy, cumpliendo un año. Nuestro primer año. Y esta noche recuerdo cada cosa por la que hemos pasado y todo lo que hemos superado. Hemos estado presentes en los momentos buenos y también en los difíciles, apoyándonos constantemente y enfrentando juntos cada dificultad.
+      </p>
+
+      <p>
+        Sé que a veces tenemos nuestras peleas, pero creo que eso también forma parte de crecer juntos. No siempre vamos a estar de acuerdo en todo, y aun así quiero que sepas que siempre voy a apoyarte, incluso en tus ideas más locas. Incluso cuando dudes de ti, cuando te llenes de pensamientos raros o cuando no logres ver todo lo increíble que eres.
+      </p>
+
+      <p>
+        Todavía me pregunto por qué a veces dices que no te ves bonita. Si tan solo pudieras verte desde mis ojos, entenderías por qué me desconcentro al mirarte. Entenderías por qué me nace cuidarte, animarte y apoyarte. Me creerías cuando te digo que para mí es imposible no amarte.
+      </p>
+
+      <p>
+        En verdad me gustaría que pudieras verte como yo te veo, aunque sea por un momento. Que sintieras la misma paz que yo siento cada vez que ríes, y el orgullo que me llena cuando soy testigo de tus logros. Mi Regi, si te vieras como lo hago yo, no volverías a sentirte insuficiente. Entenderías que eres una persona tan maravillosa que todas las cosas lindas que escribo sobre ti siempre se quedan cortas.
+      </p>
+
+      <p>
+        Nunca existirá tinta, papel, imaginación ni palabras suficientes para describir con detalle lo especial que eres ante mis ojos. Te amo, te amé y te amaré, sin importar lo que pase. Porque tú me enseñaste lo que es amar, me enseñaste lo que es ser amado y también me enseñaste a amarme un poco más.
+      </p>
+
+      <p>
+        Gracias por cada sonrisa, gracias por cada pelea, gracias por cada abrazo y por cada momento que hemos vivido. Todo, incluso lo difícil, ha sumado al crecimiento de lo nuestro. Algún día me gustaría casarme contigo, tener nuestra casita y llenarla de perritos, gatitos y hasta hámsters. Mientras tanto, sigamos luchando por nosotros y por nuestros sueños, hasta cumplirlos juntos.
+      </p>
+
+      <p>
+        Quiero estar ahí para verte lograr tus metas y apoyarte en cada una de ellas. Fuiste mi primera vez en muchas cosas, y por eso siempre vas a tener un lugar especial en mí. Tú eres como un tatuaje sin tinta, uno que llevo con orgullo marcado en el alma.
+      </p>
+
+      <p>
+        Te amo, mi chimichurri.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    Hecho con cariño por una tortuga 🐢 - desde diciembre de 2024 hasta marzo de 2026
+  </footer>
+
+  <div class="floating-note">
+    baja despacio, hay recuerdos esperando ✦
+  </div>
+
+  <script>
+    const historia = [
+      {
+        id: "diciembre-2024",
+        mes: "Diciembre 2024",
+        subtitulo: "donde esta historia empezó a tomar forma",
+        texto: "Donde todo empezó, desde el primer momento en el que te ví y me enamore completamente de ti.",
+        carpeta: "2024-12",
+        nota: "A veces el inicio de algo bonito se siente tranquilo, casi sin avisar."
+      },
+      {
+        id: "enero-2025",
+        mes: "Enero 2025",
+        subtitulo: "un comienzo un poco ácido",
+        texto: "Un mes con un recuerdo sencillo, pero suficiente para guardar el inicio de esta parte de la historia.",
+        carpeta: "2025-01",
+        nota: "A veces una sola foto alcanza para recordar cómo se sentía todo, literalmente. Gracias por el tenemos que hablar :D",
+        items: [
+          { tipo: "foto", archivo: "01.jpg" }
+        ]
+      },
+      {
+        id: "febrero-2025",
+        mes: "Febrero 2025",
+        subtitulo: "detalles que se quedaron",
+        texto: "Aquí te conocí por segunda, vez, uno de nuestros meses más bonitos llenos de un carrusel de emociones.",
+        carpeta: "2025-02",
+        nota: "Febrero guardó más de lo que parecía en ese momento.",
+        items: [
+          { tipo: "foto", archivo: "01.jpg" },
+          { tipo: "foto", archivo: "02.jpg" },
+          { tipo: "video", archivo: "03.mp4" },
+          { tipo: "foto", archivo: "04.jpg" },
+          { tipo: "foto", archivo: "05.jpg" },
+          { tipo: "foto", archivo: "06.jpg" },
+          { tipo: "foto", archivo: "07.jpg" },
+          { tipo: "foto", archivo: "08.jpg" },
+          { tipo: "foto", archivo: "09.jpg" },
+          { tipo: "foto", archivo: "10.jpg" },
+          { tipo: "foto", archivo: "11.jpg" },
+          { tipo: "foto", archivo: "12.jpg" },
+          { tipo: "foto", archivo: "13.jpg" },
+          { tipo: "foto", archivo: "14.jpg" },
+          { tipo: "foto", archivo: "15.jpg" },
+          { tipo: "foto", archivo: "16.jpg" },
+          { tipo: "foto", archivo: "17.jpg" },
+          { tipo: "foto", archivo: "18.jpg" },
+          { tipo: "foto", archivo: "19.jpg" },
+          { tipo: "foto", archivo: "20.jpg" },
+          { tipo: "foto", archivo: "21.jpg" },
+          { tipo: "foto", archivo: "22.jpg" },
+          { tipo: "foto", archivo: "23.jpg" },
+          { tipo: "foto", archivo: "24.jpg" }
+        ]
+      },
+      {
+        id: "marzo-2025",
+        mes: "Marzo 2025",
+        subtitulo: "más recuerdos juntos",
+        texto: "Un capítulo con fotos, risas y momentos que fueron sumando algo bonito sin hacerlo demasiado obvio.",
+        carpeta: "2025-03",
+        nota: "Cada mes fue dejando algo para recordar.",
+        items: [
+          { tipo: "foto", archivo: "01.jpg" },
+          { tipo: "foto", archivo: "02.jpg" },
+          { tipo: "foto", archivo: "03.jpg" },
+          { tipo: "foto", archivo: "04.jpg" },
+          { tipo: "foto", archivo: "05.jpg" },
+          { tipo: "foto", archivo: "06.jpg" },
+          { tipo: "foto", archivo: "07.jpg" },
+          { tipo: "foto", archivo: "08.jpg" },
+          { tipo: "foto", archivo: "09.jpg" },
+          { tipo: "foto", archivo: "10.jpg" }
+        ]
+      },
+      {
+        id: "abril-2025",
+        mes: "Abril 2025",
+        subtitulo: "un mes tranquilo",
+        texto: "Días simples, planes suaves y recuerdos que se sienten cálidos al mirarlos otra vez. Nuestro primer mundo en minecraft y un nuestro inicio en el mundo de las ferias de comida :D",
+        carpeta: "2025-04",
+        nota: "Lo simple también puede quedarse para siempre.",
+        items: [
+          { tipo: "foto", archivo: "01.jpg" },
+          { tipo: "foto", archivo: "02.jpg" },
+          { tipo: "foto", archivo: "03.jpg" },
+          { tipo: "foto", archivo: "04.jpg" },
+          { tipo: "foto", archivo: "05.jpg" },
+          { tipo: "foto", archivo: "06.jpg" },
+          { tipo: "foto", archivo: "07.jpg" },
+          { tipo: "foto", archivo: "08.jpg" },
+          { tipo: "foto", archivo: "09.jpg" },
+          { tipo: "foto", archivo: "10.jpg" }
+        ]
+      },
+      {
+        id: "mayo-2025",
+        mes: "Mayo 2025",
+        subtitulo: "donde empezó a sentirse especial",
+        texto: "Un mes para guardar detalles, fotos importantes y esos momentos que después se vuelven parte del inicio.",
+        carpeta: "2025-05",
+        nota: "Aquí es donde empezó todo realmente, según tú xd.",
+        items: [
+          { tipo: "foto", archivo: "01.jpg" },
+          { tipo: "foto", archivo: "02.jpg" },
+          { tipo: "foto", archivo: "03.jpg" },
+          { tipo: "foto", archivo: "04.jpg" },
+          { tipo: "foto", archivo: "05.jpg" },
+          { tipo: "foto", archivo: "06.jpg" }
+        ]
+      },
+      {
+        id: "junio-2025",
+        mes: "Junio 2025",
+        subtitulo: "días simples, recuerdos bonitos",
+        texto: "No todo tuvo que ser grande. Algunas de las mejores cosas estuvieron en los planes tranquilos y en las fotos que salieron sin pensarlo.",
+        carpeta: "2025-06",
+        nota: "Lo simple también puede quedarse para siempre uwu.",
+        items: [
+          { tipo: "foto", archivo: "01.jpg" },
+          { tipo: "foto", archivo: "02.jpg" }
+        ]
+      },
+      {
+        id: "julio-2025",
+        mes: "Julio 2025",
+        subtitulo: "un mes con su propia luz",
+        texto: "Un recuerdo sencillo de un mes que también dejó algo bonito para guardar.",
+        carpeta: "2025-07",
+        nota: "A veces una sola foto basta para volver a un momento. (Estaba rica la carne ese día owo)",
+        items: [
+          { tipo: "foto", archivo: "01.jpg" }
+        ]
+      },
+      {
+        id: "agosto-2025",
+        mes: "Agosto 2025",
+        subtitulo: "más nosotros",
+        texto: "MOMENTOS DUSKFI BIEN RANDOMS.",
+        carpeta: "2025-08",
+        nota: "Me gusta cómo fuimos haciendo nuestro propio ritmo.",
+        items: [
+          { tipo: "foto", archivo: "01.jpg" }
+        ]
+      },
+      {
+        id: "septiembre-2025",
+        mes: "Septiembre 2025",
+        subtitulo: "recuerdos que crecieron despacio",
+        texto: "TU PRIMER ANIMEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE WUUUUUUUUUUUUUU",
+        carpeta: "2025-09",
+        nota: "Cuando vemos otro? uu",
+        items: [
+          { tipo: "foto", archivo: "01.jpg" }
+        ]
+      },
+      {
+        id: "octubre-2025",
+        mes: "Octubre 2025",
+        subtitulo: "entre planes y momentos",
+        texto: "EDOOOO? :3",
+        carpeta: "2025-10",
+        nota: "Tengo hambre :C",
+        items: [
+          { tipo: "foto", archivo: "01.jpg" }
+        ]
+      },
+      {
+        id: "noviembre-2025",
+        mes: "Noviembre 2025",
+        subtitulo: "un capítulo cálido",
+        texto: "Momento vacas, dinosaurios, coballas, pecaos, dinosaurios y pelicanos en el zoo :3",
+        carpeta: "2025-11",
+        nota: "Qué bonito cuando un día normal termina siendo un recuerdo favorito."
+      },
+      {
+        id: "diciembre-2025",
+        mes: "Diciembre 2025",
+        subtitulo: "cerrar el año contigo",
+        texto: "Mi primera vez cantandote tu cumpleaños, te amo mucho, feliz cum :3",
+        carpeta: "2025-12",
+        nota: "Nuestro primer año nuevo y navidad juntitos :3",
+        items: [
+          { tipo: "foto", archivo: "01.jpg" },
+          { tipo: "foto", archivo: "02.jpg" },
+          { tipo: "foto", archivo: "03.jpg" },
+          { tipo: "foto", archivo: "04.jpg" },
+          { tipo: "video", archivo: "05.mp4" },
+          { tipo: "foto", archivo: "06.jpg" },
+          { tipo: "foto", archivo: "07.jpg" },
+          { tipo: "foto", archivo: "08.jpg" }
+        ]
+      },
+      {
+        id: "enero-2026",
+        mes: "Enero 2026",
+        subtitulo: "empezar otro año",
+        texto: "Un comienzo nuevo, con más fotos, más recuerdos y MÁS DINOSAURIOOOOOOOOOOS PERO VERSIÓN GRINGA, NUTRIAS Y TOTUGAS :D",
+        carpeta: "2026-01",
+        nota: "Empezar el año contigo hizo que se sintiera diferente.",
+        items: [
+          { tipo: "foto", archivo: "01.jpg" },
+          { tipo: "foto", archivo: "02.jpg" },
+          { tipo: "foto", archivo: "03.jpg" },
+          { tipo: "foto", archivo: "04.jpg" },
+          { tipo: "foto", archivo: "05.jpg" },
+          { tipo: "foto", archivo: "06.jpg" },
+          { tipo: "foto", archivo: "07.jpg" },
+          { tipo: "foto", archivo: "08.jpg" }
+        ]
+      },
+      {
+        id: "febrero-2026",
+        mes: "Febrero 2026",
+        subtitulo: "un mes para recordar",
+        texto: "Un mes de compras compulsivas, ya con bluey, vacas grandes y marrones que disque eran bufalos.",
+        carpeta: "2026-02",
+        nota: "Hay recuerdos que no hacen ruido, pero se quedan. (Inserta ruido de vaca bufalo: MUUUUUUUUUUU)"
+      },
+      {
+        id: "marzo-2026",
+        mes: "Marzo 2026",
+        subtitulo: "Las Vegas y Moab",
+        texto: "Luces, carretera, montañas de Utah y paisajes que parecían de película, y una cena que se que nunca olvidaremos",
+        carpeta: "2026-03",
+        nota: "Ese viaje se volvió una parte muy bonita de nuestra historia. (ARRIBA IN AND OUT)",
+        items: [
+          { tipo: "foto", archivo: "01.jpg" },
+          { tipo: "foto", archivo: "02.jpg" },
+          { tipo: "foto", archivo: "03.jpg" },
+          { tipo: "foto", archivo: "04.jpg" },
+          { tipo: "foto", archivo: "05.jpg" },
+          { tipo: "foto", archivo: "06.jpg" },
+          { tipo: "foto", archivo: "07.jpg" },
+          { tipo: "foto", archivo: "08.jpg" },
+          { tipo: "foto", archivo: "09.jpg" },
+          { tipo: "foto", archivo: "10.jpg" },
+          { tipo: "foto", archivo: "11.jpg" },
+          { tipo: "foto", archivo: "12.jpg" },
+          { tipo: "foto", archivo: "13.jpg" },
+          { tipo: "foto", archivo: "14.jpg" },
+          { tipo: "foto", archivo: "15.jpg" },
+          { tipo: "foto", archivo: "16.jpg" },
+          { tipo: "foto", archivo: "17.jpg" },
+          { tipo: "foto", archivo: "18.jpg" },
+          { tipo: "foto", archivo: "19.jpg" },
+          { tipo: "foto", archivo: "20.jpg" },
+          { tipo: "video", archivo: "21.mp4" },
+          { tipo: "foto", archivo: "22.jpg" },
+          { tipo: "foto", archivo: "23.jpg" },
+          { tipo: "foto", archivo: "24.jpg" },
+          { tipo: "foto", archivo: "25.jpg" },
+          { tipo: "foto", archivo: "26.jpg" },
+          { tipo: "foto", archivo: "27.jpg" },
+          { tipo: "foto", archivo: "28.jpg" },
+          { tipo: "foto", archivo: "29.jpg" },
+          { tipo: "foto", archivo: "30.jpg" },
+          { tipo: "foto", archivo: "31.jpg" },
+          { tipo: "foto", archivo: "32.jpg" },
+          { tipo: "foto", archivo: "33.jpg" },
+          { tipo: "foto", archivo: "34.jpg" },
+          { tipo: "foto", archivo: "35.jpg" },
+          { tipo: "foto", archivo: "36.jpg" },
+          { tipo: "foto", archivo: "37.jpg" },
+          { tipo: "foto", archivo: "38.jpg" },
+          { tipo: "foto", archivo: "39.jpg" },
+          { tipo: "foto", archivo: "40.jpg" },
+          { tipo: "foto", archivo: "41.jpg" },
+          { tipo: "foto", archivo: "42.jpg" },
+          { tipo: "foto", archivo: "43.jpg" },
+          { tipo: "foto", archivo: "44.jpg" },
+          { tipo: "foto", archivo: "45.jpg" },
+          { tipo: "foto", archivo: "46.jpg" }
+        ]
+      }
+    ];
+
+    const nav = document.getElementById("monthNav");
+    const story = document.getElementById("story");
+
+    historia.forEach((capitulo, index) => {
+      const link = document.createElement("a");
+      link.href = `#${capitulo.id}`;
+      link.textContent = capitulo.mes;
+      nav.appendChild(link);
+
+      const section = document.createElement("section");
+      section.className = "month-section";
+      section.id = capitulo.id;
+
+      const items = capitulo.items || Array.from({ length: 5 }, (_, i) => {
+        const number = String(i + 1).padStart(2, "0");
+        return {
+          tipo: "foto",
+          archivo: `${number}.jpg`
+        };
+      });
+
+      const total = items.length;
+
+      const memories = items.map((item, i) => {
+        if (item.tipo === "video") {
+          return `
+            <article class="memory-card reveal video-card">
+              <video controls playsinline preload="metadata">
+                <source src="fotos/${capitulo.carpeta}/${item.archivo}" type="video/mp4">
+                Tu navegador no puede reproducir este video.
+              </video>
+              <div class="photo-number">${capitulo.mes} · ${i + 1}/${total}</div>
+            </article>
+          `;
+        }
+
+        return `
+          <article class="memory-card reveal">
+            <img src="fotos/${capitulo.carpeta}/${item.archivo}" alt="${capitulo.mes} recuerdo ${i + 1}">
+            <div class="photo-number">${capitulo.mes} · ${i + 1}/${total}</div>
+          </article>
+        `;
+      }).join("");
+
+      section.innerHTML = `
+        <div class="month-head">
+          <p class="month-kicker">capítulo ${index + 1}</p>
+          <h2>${capitulo.mes}</h2>
+          <p><strong>${capitulo.subtitulo}</strong></p>
+          <p>${capitulo.texto}</p>
+        </div>
+
+        <div class="month-grid ${total === 1 ? "single-memory-grid" : ""}">
+          ${memories}
+        </div>
+
+        <div class="month-note reveal">
+          ${capitulo.nota}
+        </div>
+      `;
+
+      story.appendChild(section);
+
+      if (index === 0 || index === 8 || index === 15) {
+        const mountains = document.createElement("div");
+        mountains.className = "utah-mountains";
+        mountains.innerHTML = `
+          <div class="mountain mountain-one"></div>
+          <div class="mountain mountain-two"></div>
+          <div class="mountain mountain-three"></div>
+        `;
+        story.appendChild(mountains);
+      }
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, {
+      threshold: 0.15
+    });
+
+    document.querySelectorAll(".reveal").forEach((element) => {
+      observer.observe(element);
+    });
+
+    function openLetter() {
+      const letter = document.getElementById("letterCard");
+      letter.classList.toggle("show");
+    }
+  </script>
+</body>
+</html>
