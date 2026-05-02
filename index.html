@@ -934,6 +934,276 @@
         text-align: center;
       }
     }
+
+    /* =========================================================
+       RESPONSIVE EXTRA
+       Mejoras para celulares, tablets, laptops y pantallas grandes
+       ========================================================= */
+
+    :root {
+      --page-pad: clamp(1rem, 5vw, 8rem);
+      --section-pad-y: clamp(4rem, 8vw, 7rem);
+      --card-radius: clamp(18px, 3vw, 30px);
+    }
+
+    img,
+    video {
+      max-width: 100%;
+    }
+
+    header,
+    .month-section,
+    .bloom-section,
+    .ending,
+    .letter-section {
+      padding-left: var(--page-pad);
+      padding-right: var(--page-pad);
+    }
+
+    header {
+      min-height: 100svh;
+      padding-top: clamp(5rem, 9vh, 8rem);
+      padding-bottom: clamp(5rem, 9vh, 8rem);
+    }
+
+    .hero {
+      width: min(100%, 820px);
+      padding-inline: clamp(0.5rem, 3vw, 2rem);
+    }
+
+    .hero h1,
+    .month-head h2,
+    .section-title,
+    .ending-box h2 {
+      overflow-wrap: anywhere;
+    }
+
+    .hero p,
+    .month-head p,
+    .intro,
+    .month-note,
+    .ending-box p,
+    .letter-card {
+      font-size: clamp(0.95rem, 1.8vw, 1.08rem);
+    }
+
+    .sun {
+      width: clamp(110px, 18vw, 220px);
+      height: clamp(110px, 18vw, 220px);
+      top: clamp(45px, 9vh, 90px);
+      right: clamp(1rem, 8vw, 11rem);
+    }
+
+    .month-nav {
+      padding: 0.8rem var(--page-pad);
+      gap: 0.55rem;
+      scrollbar-width: thin;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .month-nav a {
+      font-size: clamp(0.72rem, 1.5vw, 0.84rem);
+      padding: 0.6rem 0.9rem;
+    }
+
+    .month-section {
+      padding-top: var(--section-pad-y);
+      padding-bottom: var(--section-pad-y);
+      min-height: auto;
+    }
+
+    .month-head {
+      width: min(100%, 780px);
+      margin-bottom: clamp(2rem, 6vw, 3.5rem);
+    }
+
+    .month-grid {
+      width: min(100%, 1280px);
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr));
+      gap: clamp(0.75rem, 2vw, 1.25rem);
+    }
+
+    .memory-card {
+      height: clamp(220px, 30vw, 340px);
+      border-radius: var(--card-radius);
+    }
+
+    .single-memory-grid {
+      width: min(100%, 620px);
+    }
+
+    .single-memory-grid .memory-card {
+      height: clamp(360px, 70vh, 620px);
+    }
+
+    .month-note,
+    .ending-box,
+    .letter-card {
+      width: min(100%, 780px);
+    }
+
+    .garden {
+      width: min(100%, 760px);
+      height: clamp(260px, 45vw, 330px);
+      gap: clamp(0.75rem, 6vw, 5rem);
+    }
+
+    .bloom {
+      width: clamp(76px, 18vw, 120px);
+      height: clamp(230px, 45vw, 270px);
+    }
+
+    .floating-note {
+      max-width: calc(100vw - 2rem);
+    }
+
+    @media (min-width: 1200px) {
+      .month-grid {
+        grid-template-columns: repeat(5, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .random-meme {
+        opacity: 0.78;
+      }
+
+      .month-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .memory-card,
+      .memory-card:nth-child(1),
+      .memory-card:nth-child(4) {
+        grid-column: span 1;
+      }
+
+      .single-memory-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .ending-box {
+        padding: clamp(1.5rem, 5vw, 2.4rem);
+      }
+    }
+
+    @media (max-width: 700px) {
+      .flower.four,
+      .random-meme span {
+        display: none;
+      }
+
+      .random-meme {
+        width: clamp(72px, 20vw, 96px);
+      }
+
+      .meme-one {
+        top: 5.5rem;
+        left: 1rem;
+      }
+
+      .meme-two {
+        right: 1rem;
+        bottom: 5.5rem;
+      }
+
+      .hero small,
+      .month-kicker {
+        letter-spacing: 2.5px;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.6rem, 15vw, 4.2rem);
+        line-height: 1;
+      }
+
+      .month-head h2 {
+        font-size: clamp(2.2rem, 12vw, 3.8rem);
+      }
+
+      .month-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .memory-card {
+        height: clamp(270px, 72vw, 420px);
+      }
+
+      .single-memory-grid .memory-card {
+        height: clamp(360px, 115vw, 520px);
+      }
+
+      .photo-number {
+        left: 0.75rem;
+        bottom: 0.75rem;
+        max-width: calc(100% - 1.5rem);
+        font-size: 0.7rem;
+      }
+
+      .garden {
+        margin-top: 2.5rem;
+      }
+
+      .letter-card {
+        padding: clamp(1.15rem, 5vw, 1.5rem);
+        border-radius: 22px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .month-nav {
+        top: 0;
+        padding-block: 0.65rem;
+      }
+
+      .month-nav a {
+        padding: 0.55rem 0.75rem;
+      }
+
+      .random-meme {
+        display: none;
+      }
+
+      .hero p,
+      .month-head p,
+      .intro,
+      .month-note,
+      .ending-box p,
+      .letter-card {
+        line-height: 1.75;
+      }
+
+      .memory-card {
+        height: 280px;
+      }
+
+      .single-memory-grid .memory-card {
+        height: 390px;
+      }
+
+      .garden {
+        transform: scale(0.88);
+        transform-origin: top center;
+        margin-bottom: -2.5rem;
+      }
+
+      .floating-note {
+        width: calc(100% - 1.5rem);
+        bottom: 12px;
+        font-size: 0.78rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
   </style>
 </head>
 
